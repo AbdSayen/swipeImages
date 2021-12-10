@@ -1,0 +1,25 @@
+.info-text {
+  position: absolute;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 75%;
+  border-radius: 0.5rem;
+}
+
+.slide {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: none;
+}
+
+.slide img {
+  border-radius: 0.5rem;
+}
+
+.active {
+  display: block !important;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,21 @@
+.info-text {
+    position: absolute;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    width: 75%;
+    border-radius: 0.5rem;
+}
+
+.slide {
+    position: relative;
+    width: max-content;
+    display: none;
+    img {
+        border-radius: 0.5rem;
+    }
+}
+
+.active {
+    display: block !important;
+}
