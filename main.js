@@ -3,6 +3,36 @@ let prevBtn = document.querySelector('.prev-btn');
 let nextBtn = document.querySelector('.next-btn');
 
 let index = 0;
+let slideSelector = document.querySelector('.slide-selector');
+let slidesSelectors;
+
+const SelectSlide = id => {
+    console.log(id);
+
+    index = id;
+
+    slides.forEach((slide) => {
+        slide.classList.remove('active');
+    });
+    slidesSelectors.forEach((slidesSelectors) => {
+        slidesSelectors.classList.remove('active');
+    });
+
+    slides[index].classList.add('active');
+    slidesSelectors[index].classList.add('active');
+}
+
+const createSelector = () => {
+    for (let index = 0; index < slides.length; index++) {
+        let circle = document.createElement('div');
+        circle.classList.add('circle');
+        circle.setAttribute('data-id', index);
+
+        slideSelector.appendChild(circle);
+    }
+    slidesSelectors = document.querySelectorAll('.circle');
+    slidesSelectors[0].classList.add('active');
+}
 
 const swipeNext = () => {
     index++;
@@ -11,11 +41,15 @@ const swipeNext = () => {
     }
 
     slides.forEach((slide) => {
-        slide.classList.remove("active");
+        slide.classList.remove('active');
+    });
+    slidesSelectors.forEach((slidesSelectors) => {
+        slidesSelectors.classList.remove('active');
     });
 
+
     slides[index].classList.add('active');
-    showSlide();
+    slidesSelectors[index].classList.add('active');
 }
 
 const swipePrev = () => {
@@ -25,12 +59,22 @@ const swipePrev = () => {
     }
 
     slides.forEach((slide) => {
-        slide.classList.remove("active");
+        slide.classList.remove('active');
+    });
+    slidesSelectors.forEach((slidesSelectors) => {
+        slidesSelectors.classList.remove('active');
     });
 
+
     slides[index].classList.add('active');
-    showSlide();
+    slidesSelectors[index].classList.add('active');
 }
+
+createSelector();
+
+slidesSelectors.forEach(circle => {
+    circle.addEventListener('click', () => SelectSlide(circle.getAttribute('data-id')));
+});
 
 nextBtn.addEventListener('click', swipeNext);
 prevBtn.addEventListener('click', swipePrev);
